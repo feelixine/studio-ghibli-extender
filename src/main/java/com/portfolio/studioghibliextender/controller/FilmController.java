@@ -49,4 +49,8 @@ public class FilmController {
         return filmService.sortFilms(order, field);
     }
 
+    @GetMapping("/binge-time")
+    public String getTotalRuning_time() {
+        return filmService.addRuning_time();
+    }
 }

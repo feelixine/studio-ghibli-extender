@@ -57,6 +57,20 @@ public class FilmService {
         return filmList;
     }
 
+    // add up the total running time of all films
+    public String addRuning_time() {
+        int total = 0;
+        for (Film film : filmArray) {
+            total += film.getRunning_time();
+        }
+        int hours = total / 60; // since both are ints, you get an int
+        int days = hours / 24;
+        int remaining_hours = hours % 24;
+        int minutes = total % 60;
+        return String.format("Total time to binge is %d days, %d hours and %02d minutes", days,
+                remaining_hours, minutes);
+    }
+
     public List<Film> sortFilms(Integer order, String field) {
         List<Film> filmList = Arrays.asList(filmArray);
         orderFilmsByField(filmList, field);
